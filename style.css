@@ -1,0 +1,38 @@
+        #main {
+            display: flex;
+            /* create a flex container */
+            background-color: rgb(165, 210, 154);
+            width: 78%;
+        }
+        
+        #submit_value {
+            margin: auto;
+            margin-left: 8%;
+        }
+        
+        footer {
+            text-align: center;
+        }
+        
+        #disp {
+            flex: 1;
+            /* set the flex-grow, flex-shrink, and flex-basis properties to 1 */
+            margin: auto;
+            text-align: center;
+            /* add some margin around the flex items */
+            background-color: #e0e2d4;
+            /* add a background color to the flex items */
+        }
+        
+        #disp1 {
+            flex: 2;
+            /* set the flex-grow, flex-shrink, and flex-basis properties to 1 */
+            text-align: center;
+            /* add some margin around the flex items */
+            background-color: #e0e2d4;
+            /* add a background color to the flex items */
+        }
+        
+        #cw {
+            margin: auto;
+        }

@@ -1,0 +1,38 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js">
+    </script>
+
+</head>
+
+<body onload="loadxml()">
+    <svg id="cw" height="390" width="390"></svg>
+    <br>
+    <br>
+    <input onclick="result()" id="submit_value" type="button" name="submit_value" value="Check"> &nbsp;&nbsp;
+
+    <input onclick="answer()" id="submit_value1" type="button" name="submit_value" value="Answer"> &nbsp;&nbsp;
+    <br>
+    <br>
+    <div id="main">
+        &nbsp;&nbsp;
+        <h3>Accross hint =></h3>
+        <div id="disp" onkeyup="suggest(this.value)"></div>
+        &nbsp;&nbsp;
+
+        <h3>updown hint=></h3>
+        <div id="disp1" onkeyup="suggest(this.value)"></div>
+        <div id="disp2" onkeyup="suggest(this.value)"></div>
+        <div id="disp3" onkeyup="suggest(this.value)"></div>
+    </div>
+    <footer>
+        <p>Creator: Raihan Laskar</p>
+        <p>Email ID: raihanlaskar65@gmail.com</p>
+        <a href="https://github.com/raihan40?tab=repositories">Raihan's repositories</a>
+    </footer>
+</body>
+
+
+</html>
