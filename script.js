@@ -52,7 +52,7 @@ function process(xdoc) {
         text_a.push(txt4.childNodes[0].nodeValue);
         final_a.push(txt5.childNodes[0].nodeValue);
     }
-    let s_final = ""
+    let s_final = "......ACCROSS HINT......" + "<br>"
     for (let i = 0; i < aclue.length; i++) {
         s_final += final_a[i] + ". " + text_a[i] + " (" +
             length_a[i] + ")" + "<br>"
@@ -73,7 +73,7 @@ function process(xdoc) {
         final_u.push(txt5.childNodes[0].nodeValue);
 
     }
-    let s_final1 = ""
+    let s_final1 = "...... UPDOWN HINT......" + "<br>"
     for (let i = 0; i < uclue.length; i++) {
         s_final1 += final_u[i] + ". " + text_u[i] + " (" +
             length_u[i] + ")" + "<br>"
@@ -103,6 +103,13 @@ function init() {
             t.setAttribute('font-size', 'lem');
             t.setAttribute('id', "t" + rid.toString());
             C.appendChild(t);
+            const m = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+            m.setAttribute('x', j * 30 + 3);
+            m.setAttribute('y', i * 30 + 12);
+            m.setAttribute('font-size', 'lem');
+            m.setAttribute('id', "m" + rid.toString());
+            m.setAttribute('style', 'vertical-align: super;font-size: xx-small;')
+            C.appendChild(m);
         }
         //C.addEventListener('mousedown', position, true);
 
@@ -160,7 +167,7 @@ function updraw() {
     for (let i = 0; i < 10; i++) {
         let rid = parseInt(row_a[i]) * 13 + parseInt(col_a[i])
         let rr = rid.toString();
-        let tid = "t" + rr;
+        let tid = "m" + rr;
         console.log(tid)
         let tx = document.getElementById(tid);
         console.log(tx)
@@ -170,7 +177,7 @@ function updraw() {
     for (let i = 0; i < 10; i++) {
         let rid = parseInt(row_u[i]) * 13 + parseInt(col_u[i])
         let rr = rid.toString();
-        let tid = "t" + rr;
+        let tid = "m" + rr;
         console.log(tid)
         let tx = document.getElementById(tid);
         console.log(tx)
@@ -192,29 +199,34 @@ function updraw() {
     console.log("flag = " + flag)
     target.setAttribute('fill', 'pink')
         //  C.addEventListener('mousedown', position, true);
+        // C.addEventListener('mousedown', position, true);
+        //  window.addEventListener('keydown', text, true);
     window.addEventListener("keydown", function(event) {
+
         event.preventDefault();
         const key = event.key; // "ArrowRight", "ArrowLeft", "ArrowUp", or "ArrowDown"
         switch (key) { // change to event.key to key to use the above variable
             case "ArrowLeft":
                 // Left pressed
                 console.log("in flag =" + flag);
+                console.log("i =" + i + "j=" + j)
                 if ((i >= 0 || i <= 12) && (j >= 0 || j <= 12)) {
                     if (flag == 2) {
                         target.setAttribute('fill', 'white')
                     } else {
                         target.setAttribute('fill', 'black')
                     }
-
-                    j--;
-                    x = i * 13 + j
-                    target = document.getElementById(x.toString());
-                    let whiteRect = target.getAttribute('fill');
-                    console.log(whiteRect == "white")
-                    if (whiteRect == "white") {
-                        flag = 2
-                    } else {
-                        flag = 1
+                    if (j >= 1) {
+                        j--;
+                        x = i * 13 + j
+                        target = document.getElementById(x.toString());
+                        let whiteRect = target.getAttribute('fill');
+                        console.log(whiteRect == "white")
+                        if (whiteRect == "white") {
+                            flag = 2
+                        } else {
+                            flag = 1
+                        }
                     }
                     console.log("out")
                     console.log("flag " + flag)
@@ -223,21 +235,26 @@ function updraw() {
                 break;
             case "ArrowRight":
                 // Right pressed
+                console.log("i =" + i + "j=" + j)
                 if (i >= 0 || i <= 12 && j >= 0 || j <= 12) {
                     if (flag == 2) {
                         target.setAttribute('fill', 'white')
                     } else {
                         target.setAttribute('fill', 'black')
                     }
-                    j++;
-                    x = i * 13 + j
-                    target = document.getElementById(x.toString());
-                    let whiteRect = target.getAttribute('fill');
-                    console.log(whiteRect == "white")
-                    if (whiteRect == "white") {
-                        flag = 2
-                    } else {
-                        flag = 1
+                    if (j <= 11) {
+                        j++
+                        //i = j % 12
+                        console.log("i =" + i + "j=" + j)
+                        x = i * 13 + j
+                        target = document.getElementById(x.toString());
+                        let whiteRect = target.getAttribute('fill');
+                        console.log(whiteRect == "white")
+                        if (whiteRect == "white") {
+                            flag = 2
+                        } else {
+                            flag = 1
+                        }
                     }
                     console.log("out")
                     console.log("flag " + flag)
@@ -245,22 +262,25 @@ function updraw() {
                 }
                 break;
             case "ArrowUp":
-                // Up pressed
+                console.log("i =" + i + "j=" + j)
+                    // Up pressed
                 if (i >= 0 || i <= 12 && j >= 0 || j <= 12) {
                     if (flag == 2) {
                         target.setAttribute('fill', 'white')
                     } else {
                         target.setAttribute('fill', 'black')
                     }
-                    i--;
-                    x = i * 13 + j
-                    target = document.getElementById(x.toString());
-                    let whiteRect = target.getAttribute('fill');
-                    console.log(whiteRect == "white")
-                    if (whiteRect == "white") {
-                        flag = 2
-                    } else {
-                        flag = 1
+                    if (i >= 1) {
+                        i--;
+                        x = i * 13 + j
+                        target = document.getElementById(x.toString());
+                        let whiteRect = target.getAttribute('fill');
+                        console.log(whiteRect == "white")
+                        if (whiteRect == "white") {
+                            flag = 2
+                        } else {
+                            flag = 1
+                        }
                     }
                     console.log("out")
                     console.log("flag " + flag)
@@ -274,15 +294,17 @@ function updraw() {
                     } else {
                         target.setAttribute('fill', 'black')
                     }
-                    i++;
-                    x = i * 13 + j
-                    target = document.getElementById(x.toString());
-                    let whiteRect = target.getAttribute('fill');
-                    console.log(whiteRect == "white")
-                    if (whiteRect == "white") {
-                        flag = 2
-                    } else {
-                        flag = 1
+                    if (i <= 11) {
+                        i++;
+                        x = i * 13 + j
+                        target = document.getElementById(x.toString());
+                        let whiteRect = target.getAttribute('fill');
+                        console.log(whiteRect == "white")
+                        if (whiteRect == "white") {
+                            flag = 2
+                        } else {
+                            flag = 1
+                        }
                     }
                     console.log("out")
                     console.log("flag " + flag)
@@ -301,6 +323,30 @@ function updraw() {
             tx.innerHTML = ch;
     });
 
+
+}
+
+function text(e) {
+    let ch = String.fromCharCode(e.keyCode);
+    let b = cy * 13 + cx;
+    let tid = "t" + b.toString();
+    //  alert(tid)
+    let tx = document.getElementById(tid);
+    if (ch >= "A" && ch <= "Z")
+        tx.innerHTML = ch;
+}
+
+function position(e) {
+    cx = Math.floor(e.offsetX / 30);
+    cy = Math.floor(e.offsetY / 30);
+    let rid = cy * 13 + cx;
+    alert("rid =" +
+        rid);
+    let rr = rid.toString();
+    //alert(rr);
+    let rec = document.getElementById(rr);
+    // alert(rec);
+    rec.setAttribute('fill', 'pink');
 }
 
 function accross(p, q) {
@@ -333,7 +379,7 @@ function up(p, q) {
 
 }
 
-function position(e) {
+function aposition(e) {
     cx = Math.floor(e.offsetX / 30);
     cy = Math.floor(e.offsetY / 30);
     let rid = cy * 13 + cx;
@@ -420,18 +466,19 @@ function result1() {
 
 function answer() {
     let s_final = ""
+    document.getElementById("inner").innerHTML = ""
     for (let i = 0; i < ans_a.length; i++) {
         s_final += final_a[i] + ". " + ans_a[i] + "<br>"
     }
 
-    document.getElementById("disp2").innerHTML = "<=Across Answer=>" + "<br>" +
+    document.getElementById("disp2").innerHTML = ".....Across Answer....." + "<br>" +
         s_final;
     "&nbsp;&nbsp;&nbsp;&nbsp"
     let s_final1 = ""
     for (let i = 0; i < ans_u.length; i++) {
         s_final1 += final_u[i] + ". " + ans_u[i] + "<br>"
     }
-    document.getElementById("disp3").innerHTML = "<=Updown Answer=>" + "<br>" +
+    document.getElementById("disp3").innerHTML = ".....Updown Answer....." + "<br>" +
         s_final1;
 
 }
