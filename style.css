@@ -1,38 +1,85 @@
-        #main {
-            display: flex;
-            /* create a flex container */
-            background-color: rgb(165, 210, 154);
-            width: 78%;
-        }
-        
-        #submit_value {
-            margin: auto;
-            margin-left: 8%;
-        }
-        
-        footer {
-            text-align: center;
-        }
-        
-        #disp {
-            flex: 1;
-            /* set the flex-grow, flex-shrink, and flex-basis properties to 1 */
-            margin: auto;
-            text-align: center;
-            /* add some margin around the flex items */
-            background-color: #e0e2d4;
-            /* add a background color to the flex items */
-        }
-        
-        #disp1 {
-            flex: 2;
-            /* set the flex-grow, flex-shrink, and flex-basis properties to 1 */
-            text-align: center;
-            /* add some margin around the flex items */
-            background-color: #e0e2d4;
-            /* add a background color to the flex items */
-        }
-        
-        #cw {
-            margin: auto;
-        }
+#total {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-top: 50px;
+}
+
+#a {
+    border: 2px solid #1b1b1b;
+    height: 390px;
+}
+
+#main {
+    /* create a flex container */
+    background-color: rgb(165, 210, 154);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    height: 410x;
+    width: 390px;
+}
+
+#submit_value {
+    margin: auto;
+    margin-left: 8%;
+}
+
+footer {
+    text-align: center;
+}
+
+#disp {
+    margin: auto;
+    /* set the flex-grow, flex-shrink, and flex-basis properties to 1 */
+    text-align: center;
+    /* add some margin around the flex items */
+    background-color: #a2b342;
+    /* add a background color to the flex items */
+}
+
+#disp1 {
+    /* set the flex-grow, flex-shrink, and flex-basis properties to 1 */
+    text-align: center;
+    margin: auto;
+    /* add some margin around the flex items */
+    background-color: #c8d197;
+    /* add a background color to the flex items */
+}
+
+#cw {
+    margin: auto;
+}
+
+#disp2 {
+    margin: auto;
+    /* set the flex-grow, flex-shrink, and flex-basis properties to 1 */
+    text-align: center;
+    /* add some margin around the flex items */
+    background-color: #a2b342;
+    /* add a background color to the flex items */
+}
+
+#disp3 {
+    /* set the flex-grow, flex-shrink, and flex-basis properties to 1 */
+    text-align: center;
+    margin: auto;
+    /* add some margin around the flex items */
+    background-color: #c8d197;
+    /* add a background color to the flex items */
+}
+
+#b {
+    /* create a flex container */
+    background-color: rgb(12, 183, 154);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    height: 410x;
+    width: 390px;
+}
+
+h2 {
+    text-align: center;
+    margin: auto;
+}
